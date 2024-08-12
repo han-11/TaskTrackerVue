@@ -1,23 +1,27 @@
-// Define the taskStore
 import { defineStore } from 'pinia';
 
 export const useTaskStore = defineStore('taskStore', {
   state: () => ({
-    // Define the tasks array with three tasks
-    tasks: [
-      { id: 1, title: 'Submit Registration Form', dueDate: '2024-10-15', completed: false },
-      { id: 2, title: 'Complete Homework', dueDate: '2024-10-16', completed: false },
-      { id: 3, title: 'Grocery Shopping', dueDate: '2024-10-17', completed: true },
-    ],
+    tasks: [], // Start with an empty tasks array
   }),
 
   actions: {
-    // Define the addTask action
+    // Fetch tasks from a mock JSON file
+    async fetchTasks() {
+      try {
+        const response = await fetch('tasks.json');
+        this.tasks = await response.json();
+      } catch (error) {
+        console.error('Failed to fetch tasks:', error);
+      }
+    },
+
+    // Add a new task
     addTask(task) {
       this.tasks.push(task);
     },
 
-    // Define the edit task action
+    // Update an existing task
     updateTask(taskId, title, dueDate) {
       const task = this.tasks.find(t => t.id === taskId);
       if (task) {
@@ -26,7 +30,7 @@ export const useTaskStore = defineStore('taskStore', {
       }
     },
 
-    // Define the toggleTaskCompletion action
+    // Toggle the completion status of a task
     toggleTaskCompletion(taskId) {
       const task = this.tasks.find(t => t.id === taskId);
       if (task) {
@@ -34,7 +38,7 @@ export const useTaskStore = defineStore('taskStore', {
       }
     },
 
-    // deleteTask action
+    // Delete a task
     deleteTask(taskId) {
       this.tasks = this.tasks.filter(t => t.id !== taskId);
     },
