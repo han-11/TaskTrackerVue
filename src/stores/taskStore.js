@@ -17,12 +17,26 @@ export const useTaskStore = defineStore('taskStore', {
       this.tasks.push(task);
     },
 
+    // Define the edit task action
+    updateTask(taskId, title, dueDate) {
+      const task = this.tasks.find(t => t.id === taskId);
+      if (task) {
+        task.title = title;
+        task.dueDate = dueDate;
+      }
+    },
+
     // Define the toggleTaskCompletion action
     toggleTaskCompletion(taskId) {
       const task = this.tasks.find(t => t.id === taskId);
       if (task) {
         task.completed = !task.completed;
       }
+    },
+
+    // deleteTask action
+    deleteTask(taskId) {
+      this.tasks = this.tasks.filter(t => t.id !== taskId);
     },
   },
 });

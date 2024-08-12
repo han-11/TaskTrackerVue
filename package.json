@@ -9,8 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.1.5",
     "devextreme-vue": "^24.1.4",
     "pinia": "^2.2.1",
+    "primeicons": "^7.0.0",
     "vue": "^3.4.29",
     "vue-router": "^4.0.13"
   },
