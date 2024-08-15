@@ -62,24 +62,4 @@ This will create an optimized version of the application in the `dist` directory
 - **src/router.js**: Configures Vue Router with routes for the task list, task detail, and adding tasks.
 - **src/assets**: Contains global styles and other static assets.
 
-## Contributing
 
-If you'd like to contribute to the project, feel free to fork the repository and submit a pull request. Contributions, issues, and feature requests are welcome.
-
-## License
-
-This project is licensed under the MIT License.
-
-## Acknowledgments
-
-- Thanks to the creators of Vue.js, Pinia, Vue Router, Tailwind CSS, and Heroicons for their fantastic tools that made this project possible.
-```
-
-### How to Use
-
-1. Copy the above content.
-2. Create a `README.md` file in the root directory of your project.
-3. Paste the content into the `README.md` file.
-4. Commit and push the changes to your GitHub repository.
-
-This README file provides a detailed overview of your project and will help others understand, set up, and contribute to your application.
